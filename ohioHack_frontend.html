@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Pixearch</title>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" type="text/css">
+<script src="https://use.fontawesome.com/8c543a4b29.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script src="amaproduct.js"></script>
+<script src="cloudvis.js"></script>
+<link rel="stylesheet" type="text/css" href="ohioHack_frontend.css">
+</head>
+
+<body >
+<div>
+    <video autoplay="true" id="videoElement">
+    </video>
+    <button type="button" class="btn btn-success btn-circle btn-xl" onclick="subfun()" id="subbutton"><i class="fa fa-camera" data-toggle="modal" data-target="#myModal"></i></button>
+  </div>
+<div>
+  <!-- Modal -->
+  <div class="modal " id="myModal" role="dialog">
+    <div class="modal-dialog modal-xl">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Search results</h4>
+        </div>
+        <div class="modal-body">
+          <p id="output1">Working on results</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<canvas id="myCanvas">
+</canvas>
+<script>
+   alert(items[0].detailpageurl);</script>
+
+</body>
+</html>
