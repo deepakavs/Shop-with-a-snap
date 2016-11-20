@@ -32,7 +32,29 @@
           <h4 class="modal-title">Search results</h4>
         </div>
         <div class="modal-body">
-          <p id="output1">Working on results</p>
+          <!-- HTML code for ASIN : 1419723448 -->
+          <div class="product-box">
+              <a target="_blank" href="https://www.amazon.com/Diary-Wimpy-Kid-11-Double/dp/1419723448%3FSubscriptionId%3DAKIAJRWT3AWHMGGLQUJA%26tag%3Dhackohio-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1419723448">
+                  <img src="http://ecx.images-amazon.com/images/I/518byyOLMcL._SL160_.jpg" width="120" height="160">
+              </a>
+              <div class="product-title">
+                  <h3>Diary of a Wimpy Kid # 11: Double Down</h3>
+              </div>
+              <p class="product-price">$7.92<br>
+                 <a target="_blank" style="color: #337ab7; text-decoration:none;" href="https://www.amazon.com/gp/offer-listing/1419723448%3FSubscriptionId%3DAKIAJRWT3AWHMGGLQUJA%26tag%3Dhackohio-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D1419723448"> More offers </a>
+             </p>
+              <div>
+                  <span class="a-button a-button-primary">
+                      <a target="_blank" href="https://www.amazon.com/Diary-Wimpy-Kid-11-Double/dp/1419723448%3FSubscriptionId%3DAKIAJRWT3AWHMGGLQUJA%26tag%3Dhackohio-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1419723448" style="text-decoration:none">
+                          <span class="a-button-inner">
+                              <img src="http://webservices.amazon.com/scratchpad/assets/images/Amazon-Favicon-64x64.png" class="a-icon a-icon-shop-now">
+                              <input class="a-button-input" type="submit" value="Add to cart">
+                              <span class="a-button-text">Shop Now</span>
+                          </span>
+                      </a>
+                  </span>
+              </div>
+          </div>
         </div>
 
       </div>
@@ -80,7 +102,7 @@ function subfun(){
      var result1 = JSON.stringify(msg);
      var result2 = JSON.parse(result1);
 
-    alert(result2.responses[0].labelAnnotations[0].description);
+  //  alert(result2.responses[0].labelAnnotations[0].description);
 
     }
 });
