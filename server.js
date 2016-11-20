@@ -52,6 +52,12 @@ router.get('/', function(req, res) {
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+app.get('/', function( req,res) {
+  res.sendfile('ohioHack_frontend.html',{root : __dirname });
+});
+app.get('/ohioHack_frontend.css', function( req,res) {
+  res.sendfile('ohioHack_frontend.css',{root : __dirname });
+});
 
 // START THE SERVER
 // =============================================================================

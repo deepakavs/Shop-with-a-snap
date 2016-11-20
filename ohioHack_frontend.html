@@ -7,12 +7,10 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
-<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/8c543a4b29.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
-<script src="amaproduct.js"></script>
-<script src="cloudvis.js"></script>
 <link rel="stylesheet" type="text/css" href="ohioHack_frontend.css">
 </head>
 
@@ -47,7 +45,51 @@
 <canvas id="myCanvas">
 </canvas>
 <script>
-   alert(items[0].detailpageurl);</script>
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+var video = document.querySelector("#videoElement");
+
+if (navigator.getUserMedia) {
+    navigator.getUserMedia({video: true}, handleVideo, videoError);
+    }
+
+function videoError(e) {
+    // do something
+}
+function handleVideo(stream) {
+    video.src = window.URL.createObjectURL(stream);
+
+}
+
+function subfun(){
+  var canvas = document.getElementById("myCanvas");
+     canvas.width = video.videoWidth;
+     canvas.height = video.videoHeight;
+     canvas.getContext('2d').drawImage(video, 0, 0);
+     var imgData = canvas.toDataURL("img/png");
+     result =  imgData.replace(/^data:image\/(png|jpg);base64,/, "");
+     var data = {"requests":[{"image":{"content":result},"features":[{"type":"LABEL_DETECTION","maxResults":1}]}]};
+     $.ajax({
+     url: 'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAzFI9CitPQnQUGyPz9eGXx8tRkoNCobGc',
+     type: 'POST',
+     data: JSON.stringify(data),
+     headers: {
+      "Content-Type": "application/json",
+    },
+     dataType: 'json',
+     success: function(msg) {
+     var result1 = JSON.stringify(msg);
+     var result2 = JSON.parse(result1);
+
+    alert(result2.responses[0].labelAnnotations[0].description);
+
+    }
+});
+     //imgData = imgData.replace('data:image/png;base64, ',' ');
+     //var postData = JSON.stringify({imageData: imgData});
+     //alert(imgData);
+  }
+
+</script>
 
 </body>
 </html>
