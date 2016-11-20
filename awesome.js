@@ -1,10 +1,9 @@
-var https = require('https');
-var fs = require('fs');
-var options = {
-  key: fs.readFileSync('/var/www/html/.well-known/acme-challenge/private.key'),
-  cert: fs.readFileSync('/var/www/html/.well-known/acme-challenge/certificate.crt')
-};
+﻿// server.js
 
+// BASE SETUP
+// =============================================================================
+
+// call the packages we need
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
@@ -14,7 +13,7 @@ var amazon = require('amazon-product-api');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// set our port
+var port = process.env.PORT || 8080;  // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -41,7 +40,7 @@ router.get('/', function(req, res) {
           medimg: results[i].MediumImage[0].URL,
           title: results[i].ItemAttributes[0].Title
        };
- items.push(item);
+       items.push(item);
     }
       res.json(items);
       //var price = results[0].Offers[0].Offer[0].OfferListing[0].Price[0].FormattedPrice;
@@ -60,5 +59,7 @@ app.get('/ohioHack_frontend.css', function( req,res) {
   res.sendfile('ohioHack_frontend.css',{root : __dirname });
 });
 
-https.createServer(options,app).listen(443);
-
+// START THE SERVER
+// =============================================================================
+app.listen(port);
+console.log('Magic happens on port ' + port);
