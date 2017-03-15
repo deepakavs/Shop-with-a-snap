@@ -1,4 +1,6 @@
-# OH-O-hack
-Application Name: Shop with a Snap
+# Application Name: Shop with a Snap
 
-A cool web application which lets the users take a picture of any object. The web application processes the image using Google Cloud vision API in the background and identifies the object. Then it gives the user the links from amazon where he can purchase it.
+#### Never worry to purchase an unknown object Online.
+
+ Want to buy anthing online. Take a snap of it using this application and that's all you need. 
+ This web application processes the image using Google Cloud vision API in the background and identifies the object, then the object is searched in using Amazon API, then it gives user the links from amazon where he can purchase it.
